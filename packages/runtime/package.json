@@ -1,0 +1,28 @@
+{
+  "name": "runtime",
+  "version": "1.0.0",
+  "main": "dist/huyact.js",
+  "files": [
+    "dist/huyact.js"
+  ],
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "rollup -c",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "vitest",
+    "test:run": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^9.22.0",
+    "jsdom": "^26.0.0",
+    "rollup": "^4.35.0",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-filesize": "^10.0.0",
+    "vitest": "^3.0.8"
+  }
+}
