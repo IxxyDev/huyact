@@ -1,3 +1,5 @@
+import { setAttributes } from "./attributes";
+import { addEventListeners } from "./events";
 import { DOM_TYPES } from "./h";
 
 export function mountDOM(vdom, parentEl) {
