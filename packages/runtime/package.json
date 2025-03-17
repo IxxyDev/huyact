@@ -1,9 +1,9 @@
 {
   "name": "runtime",
-  "version": "1.0.0",
-  "main": "dist/huyact.js",
+  "version": "0.1.0",
+  "main": "dist/aex.js",
   "files": [
-    "dist/huyact.js"
+    "dist/aex.js"
   ],
   "scripts": {
     "prepack": "npm run build",
