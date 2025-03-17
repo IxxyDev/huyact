@@ -2,18 +2,18 @@ import { setAttributes } from "./attributes";
 import { addEventListeners } from "./events";
 import { DOM_TYPES } from "./h";
 
-export function mountDOM(vdom, parentEl) {
+export function mountDOM(vdom, parentElem) {
 	switch (vdom.type) {
 		case DOM_TYPES.TEXT: {
-			createTextNode(vdom, parentEl)
+			createTextNode(vdom, parentElem)
 			break
 		}
 		case DOM_TYPES.ELEMENT: {
-			createElementNode(vdom, parentEl)
+			createElementNode(vdom, parentElem)
 			break
 		}
 		case DOM_TYPES.FRAGMENT: {
-			createFragmentNode(vdom, parentEl)
+			createFragmentNode(vdom, parentElem)
 			break
 		}
 		default: {
@@ -22,16 +22,16 @@ export function mountDOM(vdom, parentEl) {
 	}
 }
 
-function createTextNode(vdom, parentEl) {
+function createTextNode(vdom, parentElem) {
 	const { value } = vdom
 
 	const textNode = document.createTextNode(value)
 	vdom.el = textNode
 
-	parentEl.append(textNode)
+	parentElem.append(textNode)
 }
 
-function createElementNode(vdom, parentEl) {
+function createElementNode(vdom, parentElem) {
 	const { tag, props, children } = vdom
 	const element = document.createElement(tag)
 
@@ -39,14 +39,14 @@ function createElementNode(vdom, parentEl) {
 	vdom.el = element
 
 	children.forEach(child => mountDOM(child, element))
-	parentEl.append(element)
+	parentElem.append(element)
 }
 
-function createFragmentNode(vdom, parentEl) {
+function createFragmentNode(vdom, parentElem) {
 	const { children } = vdom
-	vdom.el = parentEl
+	vdom.el = parentElem
 
-	children.forEach(child => mountDOM(child, parentEl))
+	children.forEach(child => mountDOM(child, parentElem))
 }
 
 function addProps(elem, props, vdom) {
